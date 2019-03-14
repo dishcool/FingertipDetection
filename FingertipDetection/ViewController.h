@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <opencv2/highgui/ios.h>
+#import <opencv2/videoio/cap_ios.h>
 #import "FingerDetect.hpp"
 #include <vector>
 #include <algorithm>

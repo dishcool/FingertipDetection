@@ -5,8 +5,8 @@ using namespace std;
 
 #define minH 0
 #define maxH 20
-#define minS 30
-#define maxS 150
+#define minS 58
+#define maxS 137
 #define minV 60
 #define maxV 255
 #define inAngleMin 180
@@ -62,18 +62,20 @@ float FingerDetect::innerAngle(float px1, float py1, float px2, float py2, float
 }
 
 
-int FingerDetect::detectFinger(cv::Mat& frame)
+int FingerDetect::detectFinger(cv::Mat& frame, cv::Point& topPoint)
 {
-    
+    // 1.颜色分割找出手部皮肤 很可能颜色相近的地方也圈住
     cv::Mat hsv;
     cv::cvtColor(frame, hsv, CV_BGR2HSV);
+    // 2.在我们的阈值范围内, 将图像变成二值图像, 也就是, 在阈值范围内的点为白色, 否则为黑色.
     cv::inRange(hsv, cv::Scalar(minH, minS, minV), cv::Scalar(maxH, maxS, maxV), hsv);
     
     // Pre processing
+    // 3. 利用中值滤波 cv::medianBlur 去降噪和 cv::dilate 去填补漏洞
     int blurSize = 5;
-    int elementSize = 5;
+    int elementSize = 1;
     cv::medianBlur(hsv, hsv, blurSize);
-    cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2 * elementSize + 1, 2 * elementSize + 1), cv::Point(elementSize, elementSize));
+    cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2 * elementSize + 1, 2 * elementSize + 1), cv::Point(-1, -1));
     cv::dilate(hsv, hsv, element);
     
     // Contour detection
@@ -86,6 +88,13 @@ int FingerDetect::detectFinger(cv::Mat& frame)
         if (cv::contourArea(contours[i]) > cv::contourArea(contours[largestContour]))
             largestContour = i;
     }
+    
+    if (contours.empty() || cv::contourArea(contours[largestContour]) < 17000)
+    {
+        return 0;
+    }
+    
+    
     if (showLines)
         cv::drawContours(frame, contours, largestContour, cv::Scalar(0, 0, 255), 1);
     
@@ -94,8 +103,9 @@ int FingerDetect::detectFinger(cv::Mat& frame)
     {
         std::vector<std::vector<cv::Point> > hull(1);
         cv::convexHull(cv::Mat(contours[largestContour]), hull[0], false);
+
         if (showLines)
-            cv::drawContours(frame, hull, 0, cv::Scalar(0, 255, 0), 3);
+            cv::drawContours(frame, hull, 0, cv::Scalar(0, 255, 0), 1);
         if (hull[0].size() > 2)
         {
             std::vector<int> hullIndexes;
@@ -105,7 +115,9 @@ int FingerDetect::detectFinger(cv::Mat& frame)
             cv::Rect boundingBox = cv::boundingRect(hull[0]);
 //            if (showLines)
 //                cv::rectangle(frame, boundingBox, cv::Scalar(255, 0, 0));
+            
             cv::Point center = cv::Point(boundingBox.x + boundingBox.width / 2, boundingBox.y + boundingBox.height / 2);
+            std::vector<cv::Point> fingerPoints;
             std::vector<cv::Point> validPoints;
             for (size_t i = 0; i < convexityDefects.size(); i++)
             {
@@ -123,15 +135,29 @@ int FingerDetect::detectFinger(cv::Mat& frame)
                 double length = std::sqrt(std::pow(p1.x - p3.x, 2) + std::pow(p1.y - p3.y, 2));
                 if (angle > angleMin - 180 && angle < angleMax - 180 && inAngle > inAngleMin - 180 && inAngle < inAngleMax - 180 && length > lengthMin / 100.0 * boundingBox.height && length < lengthMax / 100.0 * boundingBox.height)
                 {
-                    validPoints.push_back(p1);
+                    fingerPoints.push_back(p1);
                 }
+                validPoints.push_back(p1);
             }
+            
             int ii = 0;
+            cv::Point point = cv::Point(1000, 1000);
             for (size_t i = 0; i < validPoints.size(); i++)
             {
-                cv::circle(frame, validPoints[i], 9, cv::Scalar(0, 255, 0), 2);
+                cv::circle(frame, validPoints[i], 3, cv::Scalar(0, 255, 0), 1);
                 ii++;
+                if (validPoints[i].y < point.y) {
+                    point.x = validPoints[i].x;
+                    point.y = validPoints[i].y;
+                }
             }
+            
+            cv::circle(frame, point, 4, cv::Scalar(255, 0, 255), 1);
+
+            
+            topPoint.x = point.x;
+            topPoint.y = point.y;
+            
             return ii;
         }
     }

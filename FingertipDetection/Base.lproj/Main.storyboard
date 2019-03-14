@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,10 +25,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMB-zD-dpX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="-257" y="0.0" width="889" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FMB-zD-dpX" secondAttribute="height" multiplier="64:48" id="lQb-hK-KVG"/>
+                                </constraints>
                             </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="46t-kb-iTF">
-                                <rect key="frame" x="16" y="610" width="51" height="31"/>
+                                <rect key="frame" x="16" y="610.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="detectSwitchTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="eCK-Pl-skU"/>
                                 </connections>
@@ -40,7 +43,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heN-DP-oia">
-                                <rect key="frame" x="22" y="642" width="36" height="17"/>
+                                <rect key="frame" x="22" y="642.5" width="36" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -59,7 +62,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7M-Wh-DSh">
-                                <rect key="frame" x="308" y="130" width="51" height="21"/>
+                                <rect key="frame" x="307.5" y="130" width="51" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="51" id="3rZ-hj-fuJ"/>
                                     <constraint firstAttribute="height" constant="21" id="abY-5s-Q95"/>
@@ -77,15 +80,15 @@
                             <constraint firstAttribute="trailing" secondItem="qVZ-al-T0H" secondAttribute="trailing" constant="7" id="Cvf-VH-peA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KEW-OF-oS3" secondAttribute="bottom" constant="8" id="Dmt-SD-nJS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mM6-Qh-sRy" secondAttribute="bottom" id="Iex-R8-Ndv"/>
+                            <constraint firstItem="FMB-zD-dpX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Npu-Dg-vus"/>
+                            <constraint firstItem="FMB-zD-dpX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nti-8c-2GQ"/>
                             <constraint firstItem="E7M-Wh-DSh" firstAttribute="top" secondItem="qVZ-al-T0H" secondAttribute="bottom" constant="2" id="PoN-aL-7FZ"/>
-                            <constraint firstAttribute="trailing" secondItem="FMB-zD-dpX" secondAttribute="trailing" id="VGw-ZQ-Wf3"/>
                             <constraint firstItem="E7M-Wh-DSh" firstAttribute="centerX" secondItem="qVZ-al-T0H" secondAttribute="centerX" id="XBi-Fk-ie7"/>
+                            <constraint firstItem="FMB-zD-dpX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ykg-1Z-GB8"/>
+                            <constraint firstAttribute="bottom" secondItem="FMB-zD-dpX" secondAttribute="bottom" id="Z7G-8t-JJW"/>
                             <constraint firstAttribute="trailing" secondItem="eTO-KO-u3y" secondAttribute="trailing" constant="18" id="ZLt-ES-UuB"/>
-                            <constraint firstItem="FMB-zD-dpX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZcK-Xg-sGm"/>
                             <constraint firstItem="heN-DP-oia" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="aG2-Tx-xc4"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FMB-zD-dpX" secondAttribute="bottom" id="bQZ-fx-0Iw"/>
                             <constraint firstItem="46t-kb-iTF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="dqt-yf-s3R"/>
-                            <constraint firstItem="FMB-zD-dpX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eXK-s2-GsW"/>
                             <constraint firstAttribute="trailing" secondItem="mM6-Qh-sRy" secondAttribute="trailing" id="gt4-OW-RVc"/>
                             <constraint firstItem="mM6-Qh-sRy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="j38-j2-shH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="heN-DP-oia" secondAttribute="bottom" constant="8" id="odk-8R-Jxw"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3EEDC322375C3600766665 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3EEDC222375C3600766665 /* opencv2.framework */; };
 		95C041271F47D9CA007610B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C041261F47D9CA007610B1 /* main.m */; };
 		95C0412A1F47D9CA007610B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C041291F47D9CA007610B1 /* AppDelegate.m */; };
 		95C0412D1F47D9CA007610B1 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95C0412C1F47D9CA007610B1 /* ViewController.mm */; };
@@ -23,11 +24,11 @@
 		95C0414E1F47DAB4007610B1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C0414D1F47DAB4007610B1 /* AVFoundation.framework */; };
 		95C041501F47DABB007610B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C0414F1F47DABB007610B1 /* Foundation.framework */; };
 		95C041521F47DAC2007610B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C041511F47DAC2007610B1 /* CoreGraphics.framework */; };
-		95C041561F47DB0D007610B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C041551F47DB0D007610B1 /* opencv2.framework */; };
 		95C041591F47DDEB007610B1 /* FingerDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95C041581F47DDEB007610B1 /* FingerDetect.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E3EEDC222375C3600766665 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		95C041221F47D9CA007610B1 /* FingertipDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingertipDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C041261F47D9CA007610B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95C041281F47D9CA007610B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		95C0414D1F47DAB4007610B1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		95C0414F1F47DABB007610B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		95C041511F47DAC2007610B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		95C041551F47DB0D007610B1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		95C041571F47DDEB007610B1 /* FingerDetect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FingerDetect.hpp; sourceTree = "<group>"; };
 		95C041581F47DDEB007610B1 /* FingerDetect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FingerDetect.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C041561F47DB0D007610B1 /* opencv2.framework in Frameworks */,
 				95C041521F47DAC2007610B1 /* CoreGraphics.framework in Frameworks */,
 				95C041501F47DABB007610B1 /* Foundation.framework in Frameworks */,
 				95C0414E1F47DAB4007610B1 /* AVFoundation.framework in Frameworks */,
@@ -69,6 +68,7 @@
 				95C041441F47DA8A007610B1 /* AssetsLibrary.framework in Frameworks */,
 				95C041421F47DA85007610B1 /* Accelerate.framework in Frameworks */,
 				95C041401F47DA7E007610B1 /* QuartzCore.framework in Frameworks */,
+				2E3EEDC322375C3600766665 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +121,7 @@
 		95C0413E1F47DA7D007610B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				95C041551F47DB0D007610B1 /* opencv2.framework */,
+				2E3EEDC222375C3600766665 /* opencv2.framework */,
 				95C041511F47DAC2007610B1 /* CoreGraphics.framework */,
 				95C0414F1F47DABB007610B1 /* Foundation.framework */,
 				95C0414D1F47DAB4007610B1 /* AVFoundation.framework */,
@@ -167,7 +167,7 @@
 				TargetAttributes = {
 					95C041211F47D9CA007610B1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = C8VX3ZLX5U;
+						DevelopmentTeam = 5AS2P9N6F5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -331,14 +331,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C8VX3ZLX5U;
+				DEVELOPMENT_TEAM = 5AS2P9N6F5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FingertipDetection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianing.FingertipDetection;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dishcool.FingertipDetection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -347,14 +347,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C8VX3ZLX5U;
+				DEVELOPMENT_TEAM = 5AS2P9N6F5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FingertipDetection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianing.FingertipDetection;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dishcool.FingertipDetection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -378,6 +378,7 @@
 				95C0413B1F47D9CA007610B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

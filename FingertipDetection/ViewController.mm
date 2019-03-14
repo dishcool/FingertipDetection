@@ -10,6 +10,13 @@
 
 @interface ViewController ()
 
+// 稳定最高点
+@property (nonatomic, assign) CGPoint topPoint;
+// 实时最高点
+@property (nonatomic, assign) CGPoint actualPoint;
+
+@property (nonatomic, strong) UIView *redCenter;
+
 @end
 
 @implementation ViewController
@@ -22,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
     self.videoCamera = [[CvVideoCamera alloc]
                         initWithParentView:imageView];
     self.videoCamera.delegate = self;
@@ -30,7 +39,7 @@
     self.videoCamera.defaultAVCaptureSessionPreset =
     AVCaptureSessionPreset640x480;
     self.videoCamera.defaultAVCaptureVideoOrientation =
-    AVCaptureVideoOrientationPortrait;
+    AVCaptureVideoOrientationLandscapeRight;
     self.videoCamera.defaultFPS = 30;
     
     fingerDetect = new FingerDetect();
@@ -43,15 +52,17 @@
 
 - (void)processImage:(cv::Mat&)image
 {
-    int i = fingerDetect->detectFinger(image);
+    cv::Point point;
+    fingerDetect->detectFinger(image, point);
     fingerDetect->showLines = showLines;
+    
+    [self handleActualTopPoint:CGPointMake(point.x, point.y)];
+}
+
+- (void)handleActualTopPoint:(CGPoint)point {
     dispatch_async(dispatch_get_main_queue(), ^{
-        fingerLabel.text = [NSString stringWithFormat:@"%d", i];
-        if ( i>0 && i<6 ) {
-            fingerImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%d", @"finger",i]];
-        }else{
-            fingerImageView.image = nil;
-        }
+        self.actualPoint = CGPointMake(point.x * self.imageView.bounds.size.width / 640.0, point.y * self.imageView.bounds.size.height / 480.0);
+        self.redCenter.center = self.actualPoint;
     });
 }
 
@@ -71,6 +82,17 @@
 
 - (IBAction)showLinesSwitchTapped:(id)sender {
     showLines = [sender isOn];
+}
+
+- (UIView *)redCenter {
+    if (!_redCenter) {
+        _redCenter = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+        _redCenter.backgroundColor = [UIColor redColor];
+        _redCenter.layer.cornerRadius = 5;
+        _redCenter.layer.masksToBounds = YES;
+        [self.imageView addSubview:_redCenter];
+    }
+    return _redCenter;
 }
 
 @end
