@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E3EEDC322375C3600766665 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3EEDC222375C3600766665 /* opencv2.framework */; };
+		2EFFC9C5223B9F92006C9D81 /* ImageProcess.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2EFFC9C3223B9F92006C9D81 /* ImageProcess.mm */; };
 		95C041271F47D9CA007610B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C041261F47D9CA007610B1 /* main.m */; };
 		95C0412A1F47D9CA007610B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C041291F47D9CA007610B1 /* AppDelegate.m */; };
 		95C0412D1F47D9CA007610B1 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95C0412C1F47D9CA007610B1 /* ViewController.mm */; };
@@ -29,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		2E3EEDC222375C3600766665 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		2EFFC9C3223B9F92006C9D81 /* ImageProcess.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageProcess.mm; sourceTree = "<group>"; };
+		2EFFC9C4223B9F92006C9D81 /* ImageProcess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageProcess.h; sourceTree = "<group>"; };
 		95C041221F47D9CA007610B1 /* FingertipDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingertipDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C041261F47D9CA007610B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95C041281F47D9CA007610B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				95C041291F47D9CA007610B1 /* AppDelegate.m */,
 				95C041571F47DDEB007610B1 /* FingerDetect.hpp */,
 				95C041581F47DDEB007610B1 /* FingerDetect.cpp */,
+				2EFFC9C4223B9F92006C9D81 /* ImageProcess.h */,
+				2EFFC9C3223B9F92006C9D81 /* ImageProcess.mm */,
 				95C0412B1F47D9CA007610B1 /* ViewController.h */,
 				95C0412C1F47D9CA007610B1 /* ViewController.mm */,
 				95C0412E1F47D9CA007610B1 /* Main.storyboard */,
@@ -167,7 +172,7 @@
 				TargetAttributes = {
 					95C041211F47D9CA007610B1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 5AS2P9N6F5;
+						DevelopmentTeam = HUW3H8NBU9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -209,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95C0412D1F47D9CA007610B1 /* ViewController.mm in Sources */,
+				2EFFC9C5223B9F92006C9D81 /* ImageProcess.mm in Sources */,
 				95C0412A1F47D9CA007610B1 /* AppDelegate.m in Sources */,
 				95C041271F47D9CA007610B1 /* main.m in Sources */,
 				95C041591F47DDEB007610B1 /* FingerDetect.cpp in Sources */,
@@ -331,14 +337,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5AS2P9N6F5;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FingertipDetection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dishcool.FingertipDetection;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dishcool.FingerDetection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -347,14 +353,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5AS2P9N6F5;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FingertipDetection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dishcool.FingertipDetection;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dishcool.FingerDetection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

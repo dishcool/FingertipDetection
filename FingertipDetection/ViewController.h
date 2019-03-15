@@ -20,6 +20,8 @@
 }
 
 @property (nonatomic, strong) CvVideoCamera* videoCamera;
+
+@property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISwitch *detectSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *showLineSwitch;
